@@ -6,7 +6,7 @@ import svg from "vite-plugin-svgstring"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'https://multimedia.scmp.com/components/2026/lantern-wc/',
+  base: 'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/',
   server: {
     proxy: {
       '/api/sheet': {
