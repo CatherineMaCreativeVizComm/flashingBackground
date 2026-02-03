@@ -30,38 +30,38 @@
   ];
 
   export let textSrc = [
-    "Lantern Text 1",
-    "Lantern Text 2",
-    "Lantern Text 3",
-    "Lantern Text 4",
-    "Lantern Text 5",
-    "Lantern Text 6",
-    "Lantern Text 7",
-    "Lantern Text 8",
-    "Lantern Text 9",
-    "Lantern Text 10",
-    "Lantern Text 11",
-    "Lantern Text 12",
-    "Lantern Text 13",
+    {"head": "Year of the Mouse", "body": "The Cat and the Mouse convinced the honest Ox to carry them across the river. However, the Mouse betrayed the Cat by pushing him into the water while he was sleeping."},
+    {"head": "Year of the Ox", "body": "When the ox, carrying the mouse, arrived at the palace, the mouse leapt ahead to present itself before the Jade Emperor. In this way, the mouse finally claimed first place, while the ox only managed to secure second place."},
+    {"head": "Year of the Tiger", "body": "The mighty tiger followed closely behind, securing third place."},
+    {"head": "Year of the Rabbit", "body": "The rabbit raced against the dragon. It cleverly hopped across stepping stones and a floating log came in fourth."},
+    {"head": "Year of the Dragon", "body": "The dragon, despite its ability to fly, arrived fifth, because it stopped to perform a rain ceremony for the people."},
+    {"head": "Year of the Snake", "body": "The snake typically keeps a low profile, hiding itself. In the race, it suddenly darted out from the grass by the roadside, overtaking the startled horse, and thus secured sixth place."},
+    {"head": "Year of the Horse", "body": "The horse and the snake were originally close to each other, but the horse was startled by the snake, which affected its speed. Therefore, the horse came in seventh."},
+    {"head": "Year of the Goat", "body": "The goat, monkey, and rooster worked together to cross the river. The goat led the way, the monkey helped to build a raft, and the rooster kept watch. They arrived together, and the Jade Emperor awarded them eighth, ninth, and tenth places respectively."},
+    {"head": "Year of the Monkey", "body": "The goat, monkey, and rooster worked together to cross the river. The goat led the way, the monkey helped to build a raft, and the rooster kept watch. They arrived together, and the Jade Emperor awarded them eighth, ninth, and tenth places respectively."},
+    {"head": "Year of the Rooster", "body": "The goat, monkey, and rooster worked together to cross the river. The goat led the way, the monkey helped to build a raft, and the rooster kept watch. They arrived together, and the Jade Emperor awarded them eighth, ninth, and tenth places respectively."},
+    {"head": "Year of the Dog", "body": "The dog, who loved to play in the water, arrived eleventh, having enjoyed a swim across the river."},
+    {"head": "Year of the Pig", "body": "The pig, who had stopped to eat and nap during the race, arrived twelfth."},
+    {"head": "The grudge", "body": "Arriving too late to claim a spot, the drenched cat was excluded from the Zodiac. Enraged by the rat's betrayal, the cat swore an eternal blood feud, vowing to hunt down its enemy forever."},
   ];
 
   export let clockTextSrc = [
-    "Clock Item 1",
-    "Clock Item 2",
-    "Clock Item 3",
-    "Clock Item 4",
-    "Clock Item 5",
-    "Clock Item 6",
-    "Clock Item 7",
-    "Clock Item 8",
-    "Clock Item 9",
-    "Clock Item 10",
-    "Clock Item 11",
-    "Clock Item 12",
-    "Ignored",
+    {"head": "23:00 (day before) - 1:00 | Hour of the Rat", "body": "When the world sleeps, the Rat stirs. It is said that creation itself began here: the universe was a trapped, airless box until a single Rat bit a hole in the dark, releasing the energy of life. "},
+    {"head": "1:00 - 3:00 | Hour of the Ox", "body": "The Rat cracked the sky open, but the world below remained wild and barren. The Ox rises to chew its cud, gathering the strength needed for its legendary burden: pulling the plow that turned the primeval chaos into fertile, living land."},
+    {"head": "3:00 - 5:00 | Hour of the Tiger", "body": "While the Ox toils, the Tiger rules. This is not just the Tiger’s prime hunting time, but also a patrol—the Tiger's pre-dawn roar was said to scare away evil spirits, cementing its status as the King of Beasts."},
+    {"head": "5:00 - 7:00 | Hour of the Rabbit", "body": "Dawn breaks, but the moon—home of the legendary Jade Rabbit—lingers in the sky. The earthly rabbits emerge to feast on grass glistening with morning dew, bridging the gap between the fading night and the rising sun."},
+    {"head": "7:00 - 9:00 | Hour of the Dragon", "body": "As the sun climbs and the morning mist rises, the Dragon takes flight. It soars through the clouds to deliver rain to the earth, surging Yang energy of the new day and ensuring a prosperous harvest for the year ahead."},
+    {"head": "9:00 - 11:00 | Hour of the Snake", "body": "The Dragon’s mist vanishes, and the sun burns through. The cold-blooded Snake leaves its dark burrow to bask and feed to fuel their energy. The day is the brightest and clearest, yet the Snake remains a master of hiding in plain sight."},
+    {"head": "11:00 - 13:00 | Hour of the Horse", "body": "The sun is at its zenith—the absolute peak of Yang fire, yet, also the precise moment when Yin is born. The Horse gallop and neigh across the plains to catch the emerging Yin, balancing the universe’s energy."},
+    {"head": "13:00 - 15:00 | Hour of the Goat", "body": "The sun softens, and the flocks move to the pasture. Farmers release their herds because the Sheep feeds with a unique grace—grazing now leaves the roots unharmed, allowing the earth to heal and the grass to thrive again."},
+    {"head": "15:00 - 17:00 | Hour of the Monkey", "body": "The sun dips west, and the forest echoes. The Monkey becomes vocal, signaling the day's end. It extends its limbs to swing and climb across the canopy, bridging the gap between the high sun and the coming dusk."},
+    {"head": "17:00 - 19:00 | Hour of the Rooster", "body": "The sun kisses the horizon. Before total darkness falls, chickens instinctively circle their coops, lingering at the entrance. It signals the completion of the workday, marking the precise transition from the activity of the day to the stillness of the night."},
+    {"head": "19:00 - 21:00 | Hour of the Dog", "body": "Daylight fades to black. As humans finish their labor and shut the wooden doors for the night, the Dog’s responsibility begins. It stays awake, serving as the vigilant guardian of the courtyard, ready to challenge any disturbance in the silence."},
+    {"head": "21:00 - 23:00 | Hour of the Pig", "body": "The cycle closes at the deepest point of the night, where the universe settles back into a state of primordial chaos. In this void, the Pig eats and rests, embodying the innocent, blissful pause before the Rat wakes up to restart time."}
   ];
 
-  export let transitionText = "In traditional Chinese timekeeping,";
+  export let transitionText = "In traditional Chinese timekeeping, the twenty-four hour day is divided into twelve two-hour periods known as Shi Chen (時辰). Each of these periods corresponds to one of the Zodiac animals in a fixed sequence, beginning with the Hour of the Rat which spans from 11:00 PM to 1:00 AM. This system harmonizes human life with nature by linking specific times of day to the biological clock and daily habits of each animal.";
+
   export let screenHeight = 1200;
 
   const dayColors = [
@@ -416,9 +416,9 @@
 
       if (!this.group.visible) return;
 
-      const radius = isMobile ? 16 : 24;
+      const radius = isMobile ? 16 : 22;
       const bgSize = isMobile ? 28 : 40;
-      const pHeight = isMobile ? 6 : 5;
+      const pHeight = isMobile ? 6 : 8;
       const startRad = 13.5;
 
       if (this.bgMesh) {
@@ -766,7 +766,8 @@
                 ? 'active'
                 : ''} {isClockMode ? 'clockMode' : 'lanternMode'}"
             >
-              <p>{text}</p>
+              <p class="head">{text.head}</p>
+              <p class="body">{text.body}</p>
             </div>
           {/each}
 
@@ -801,6 +802,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    line-height: 25px;
   }
 
   .revolvingLattern {
@@ -856,21 +858,33 @@
     pointer-events: none;
   }
 
-  .textBox {
+  .textBox, .transitionTextBox {
     position: absolute;
     width: 60%;
-    max-width: 400px;
+    max-width: 450px;
     text-align: center;
-    color: #ffbf51;
-    font-size: 16px;
+    color: #edd9bb;
     opacity: 0;
     transform: translateY(20px);
     transition:
       opacity 0.3s ease,
       transform 0.3s ease;
     padding: 20px;
-    border-radius: 10px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    background: rgba(175, 75, 75, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .head {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .body {
+    font-size: 16px;
   }
 
   .lanternMode {
@@ -882,23 +896,6 @@
     transform: translateY(0);
   }
 
-  .transitionTextBox {
-    position: absolute;
-    width: 50%;
-    max-width: 600px;
-    text-align: center;
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 25px;
-    transition: opacity 0.5s ease;
-    padding: 20px;
-    border-radius: 10px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-    z-index: 25;
-    background-color: rgba(34, 5, 0, 0.8);
-  }
-
-  /* UPDATED CSS for softer vignette */
   .candleOverlay {
     position: absolute;
     top: 0;
@@ -916,7 +913,7 @@
   }
 
   @media (max-width: 768px) {
-    .textBox {
+    .textBox, .transitionTextBox {
       width: 90%;
       font-size: 14px;
       padding: 10px;
@@ -924,8 +921,12 @@
     .lanternMode {
       top: 60px;
     }
-    .transitionTextBox {
-      width: 85%;
+    .head {
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .body {
       font-size: 14px;
     }
   }
