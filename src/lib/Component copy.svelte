@@ -8,24 +8,27 @@
 
   const browser = typeof window !== "undefined";
 
-  export let foregroundSrc = "static/lanternCover.png";
-  export let lanternOuterSrc = "static/zodiac1.png";
-  export let innerImageSrc = "static/zodiac2.png";
-  export let clockBackgroundSrc = "static/clockBg.png";
+ export let foregroundSrc = "https://multimedia.scmp.com/components/2026/lantern-wc/lanternCover.png";
+  export let lanternOuterSrc = "https://multimedia.scmp.com/components/2026/lantern-wc/zodiac1.png";
+  export let innerImageSrc = "https://multimedia.scmp.com/components/2026/lantern-wc/zodiac2.png";
+  export let clockBackgroundSrc = "https://multimedia.scmp.com/components/2026/lantern-wc/clockBg.png";
+
+
 
   export let backgroundSrc = [
-    "static/1.png",
-    "static/2.png",
-    "static/3.png",
-    "static/4.png",
-    "static/5.png",
-    "static/6.png",
-    "static/7.png",
-    "static/8.png",
-    "static/9.png",
-    "static/10.png",
-    "static/11.png",
-    "static/12.png",
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/1.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/2.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/3.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/4.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/5.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/6.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/7.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/8.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/9.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/10.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/11.png',
+    'https://multimedia.scmp.com/components/2026/kaileidoscope-wc/12.png',
+
   ];
 
   export let textSrc = [
@@ -138,9 +141,6 @@
     "In traditional Chinese timekeeping, the 24-hour day is divided into 12 two-hour periods known as shi chen (時辰). Each of these periods corresponds to one of the zodiac animals in a fixed sequence, beginning with the Hour of the Rat, which lasts from 11pm to 1am. This system harmonises human life with nature by linking specific times of the day to the biological clock and daily habits of each animal.";
 
   export let screenHeight = 1200;
-
-  let lastWidth = 0;
-  let viewHeight = 0;
 
   const dayColors = [
     new THREE.Color("#1a1a2e"),
@@ -290,7 +290,7 @@
       depthWrite,
       alphaTest,
       side,
-      renderOrder,
+      renderOrder
     ) {
       const tex = loadTexture(this.loader, imgUrl);
       if (tex) {
@@ -329,21 +329,12 @@
     }
 
     init() {
-const h = 14;
+      const h = 14;
       const isMobile = window.innerWidth < 768;
-      
-      // FIXED SIZES FOR MOBILE LANTERN
-      const coreRadius = isMobile ? 6 : 12.5;
-      const outerRadius = isMobile ? 7 : 14;
-      const frameRadius = isMobile ? 8 : 16;
-      const coreHeight = isMobile ? h * 0.65 : h * 0.85;
-      const outerHeight = isMobile ? h * 0.65 : h;
-      const frameHeight = isMobile ? 15 : 17;
-
       this.coreMesh = this.createLayer(
-        coreRadius,
+        isMobile ? 6 : 12.5,
         this.config.innerSrc,
-        coreHeight,
+        isMobile ? h * 0.65 : h * 0.85,
         0.5,
         2.0,
         0,
@@ -359,9 +350,9 @@ const h = 14;
       const lengthRad = 330 * (Math.PI / 180);
 
       this.outerMesh = this.createLayer(
-        outerRadius,
+        isMobile ? 7 : 14,
         this.config.outerSrc,
-        outerHeight,
+        isMobile ? h * 0.65 : h,
         1.0,
         1.5,
         startRad,
@@ -379,8 +370,7 @@ const h = 14;
         tex.repeat.set(1, 1);
       }
 
-const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 6, 1, false);
-
+      const fgGeo = new THREE.CylinderGeometry(isMobile ? 8 : 16, isMobile ? 8 : 16, isMobile ? 15 : 17, 6, 1, false);
       const fgSideMat = new THREE.MeshStandardMaterial({
         map: tex,
         side: THREE.DoubleSide,
@@ -401,12 +391,7 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
       this.frameMesh = new THREE.Mesh(fgGeo, [fgSideMat, fgCapMat, fgCapMat]);
       this.frameMesh.renderOrder = 20;
 
-      const strutGeo = new THREE.CylinderGeometry(
-        isMobile ? 0.1 : 0.2,
-        isMobile ? 0.1 : 0.2,
-        isMobile ? 16 : 18,
-        8,
-      );
+      const strutGeo = new THREE.CylinderGeometry(isMobile ? 0.1 : 0.2, isMobile ? 0.1 : 0.2, isMobile ? 16 : 18, 8);
       const strutMat = new THREE.MeshStandardMaterial({
         color: 0x3d1c00,
         transparent: true,
@@ -416,13 +401,9 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
         const angle = (i / 6) * Math.PI * 2;
         const strut = new THREE.Mesh(strutGeo, strutMat);
         strut.position.set(
-          isMobile
-            ? Math.cos(angle + Math.PI / 6) * 8
-            : Math.cos(angle + Math.PI / 6) * 16,
+          isMobile ? Math.cos(angle + Math.PI / 6) * 8 :Math.cos(angle + Math.PI / 6) * 16,
           0,
-          isMobile
-            ? Math.sin(angle + Math.PI / 6) * 8
-            : Math.sin(angle + Math.PI / 6) * 16,
+          isMobile ? Math.sin(angle + Math.PI / 6) * 8 :Math.sin(angle + Math.PI / 6) * 16,
         );
         this.frameMesh.add(strut);
       }
@@ -437,14 +418,13 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
       this.frameMesh.visible = envOpacity > 0.01;
 
       if (this.group.visible) {
-        const expScale = 1 + transitionFactor * (isMobile ? 0.3 : 0.5);
+        const expScale = 1 + transitionFactor * 0.5;
         const floatY = Math.sin(time * 1.5) * 0.3;
         const hAdj = isMobile ? 1 : 0;
 
         this.outerMesh.rotation.y = rotationY;
         this.outerMesh.position.y = hAdj + floatY;
         this.outerMesh.scale.setScalar(expScale);
-
         this.outerMesh.material.opacity = lanternOpacity;
         this.outerMesh.material.emissiveIntensity = 2.5 * lanternOpacity;
 
@@ -509,7 +489,7 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
             depthWrite: false,
           }),
         );
-        this.bgMesh.position.z = -2;
+        this.bgMesh.position.z = -1;
         this.group.add(this.bgMesh);
       }
 
@@ -524,10 +504,8 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
             side: THREE.DoubleSide,
             transparent: true,
             color: 0xffffff,
-            alphaTest: 0.01,
           }),
         );
-
         container.add(mesh);
         container.userData = {
           id: i,
@@ -552,9 +530,9 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
 
       if (!this.group.visible) return;
 
-      const radius = isMobile ? 12.5 : 22;
-      const bgSize = isMobile ? 32 : 40;
-      const pHeight = isMobile ? 6.5 : 8;
+      const radius = isMobile ? 11 : 22;
+      const bgSize = isMobile ? 20 : 40;
+      const pHeight = isMobile ? 4 : 8;
       const startRad = 13.5;
 
       if (this.bgMesh) {
@@ -566,17 +544,17 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
         if (child === this.bgMesh) return;
         const u = child.userData;
         const mesh = child.children[0];
-
         const tx = Math.cos(u.angle) * radius;
         const ty = Math.sin(u.angle) * radius;
-
         const sx = Math.sin(u.startRot) * startRad;
         const sz = Math.cos(u.startRot) * startRad;
 
         child.position.set(
           sx + (tx - sx) * transitionFactor,
-          ty * transitionFactor + Math.sin(time * 2 + u.floatOffset) * 0.2,
-          sz + (1.0 - sz) * transitionFactor,
+          0 +
+            (ty - 0) * transitionFactor +
+            Math.sin(time * 2 + u.floatOffset) * 0.2,
+          sz + (0.5 - sz) * transitionFactor,
         );
 
         child.rotation.y = u.startRot * (1 - transitionFactor);
@@ -587,8 +565,8 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
 
         if (highlightProgress > 0) {
           const isActive = u.id === activeIndex;
-          const targetScale = isActive ? 1.25 : 0.85;
-          const targetOp = isActive ? 1.0 : 0.3;
+          const targetScale = isActive ? 1.2 : 1.0;
+          const targetOp = isActive ? 1.0 : 0.2;
           scale = child.scale.x + (targetScale - child.scale.x) * 0.1;
           opacity = targetOp;
           renderOrder = isActive ? 10 : 5;
@@ -600,33 +578,29 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
         if (mesh.material.map && mesh.material.map.image) {
           const img = mesh.material.map.image;
           const aspect = img.width / img.height;
-          mesh.scale.set(pHeight * aspect, pHeight, 1);
+          if (aspect > 1) mesh.scale.set(pHeight * aspect, pHeight, 1);
+          else mesh.scale.set(pHeight * aspect, pHeight, 1);
         } else {
           mesh.scale.set(pHeight, pHeight, 1);
         }
 
-        mesh.material.opacity += (opacity - mesh.material.opacity) * 0.1;
+        mesh.material.opacity =
+          mesh.material.opacity + (opacity - mesh.material.opacity) * 0.1;
       });
     }
 
     dispose() {
       this.scene.remove(this.group);
       this.group.children.forEach((c) => {
-        if (c.material) {
-          if (c.material.map) c.material.map.dispose();
-          c.material.dispose();
-        }
-        if (c.children) {
+        if (c.material) c.material.dispose();
+        if (c.children)
           c.children.forEach((gc) => {
-            if (gc.material) {
-              if (gc.material.map) gc.material.map.dispose();
-              gc.material.dispose();
-            }
+            if (gc.material) gc.material.dispose();
           });
-        }
       });
     }
   }
+
   let stickyWrapper, stickyInner, canvasContainer, candleOverlay;
   let scene, camera, renderer, candleLight, loader;
 
@@ -701,14 +675,12 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
   };
 
   const setupScrollTrigger = () => {
-    if (ctx) ctx.revert();
     gsap.registerPlugin(ScrollTrigger);
     ctx = gsap.context(() => {
-      let h = viewHeight > 0 ? viewHeight : Number(screenHeight);
+      let h = Number(screenHeight);
       const isMobile = window.innerWidth < 768;
-
-      const scrollAreaHeight = isMobile ? h * 18 : h * 25;
-      if (stickyWrapper) stickyWrapper.style.height = `${scrollAreaHeight}px`;
+      if (isMobile) h = h * 0.7;
+      if (stickyWrapper) stickyWrapper.style.height = `${h * 25}px`;
 
       gsap.to(scrollProgress, {
         value: 1,
@@ -852,34 +824,19 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
 
   const onResize = () => {
     if (isInitialized && camera && renderer) {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      if (isInitialized && Math.abs(width - lastWidth) < 5) return;
-
-      lastWidth = width;
-      viewHeight = height;
-
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-
-      const baseWidth = 375;
-      const factor = width / baseWidth;
-
-      camera.fov = (50 / factor) * (width / height / 0.6);
-
-      camera.updateProjectionMatrix();
-
+      const width = canvasContainer.clientWidth;
+      const height = canvasContainer.clientHeight || 1;
       const isMobile = width < 768;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
       if (isMobile) {
-        cameraZStart = 70;
-        cameraZEnd = 95;
+        cameraZStart = 60;
+        cameraZEnd = 110;
       } else {
         cameraZStart = 40;
         cameraZEnd = 70;
       }
-
-      if (isInitialized) setupScrollTrigger();
     }
   };
 
@@ -964,7 +921,7 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
   .revolvingLattern {
     width: 100%;
     margin: 0 auto;
-    background-color: #220500;
+    /* background-color: #220500; */
   }
 
   .stickyWrapper {
@@ -976,7 +933,6 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
     position: relative;
     width: 100%;
     height: 100vh;
-    height: 100dvh;
     overflow: hidden;
   }
 
@@ -1024,7 +980,8 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
     color: #edd9bb;
     opacity: 0;
     /* transform: translateY(20px); */
-    transition: opacity 0.5s ease-in-out;
+    transition:
+      opacity 0.5s ease-in-out;
     padding: 20px;
     border-radius: 20px;
     background: rgba(175, 75, 75, 0.04);
@@ -1075,8 +1032,7 @@ const fgGeo = new THREE.CylinderGeometry(frameRadius, frameRadius, frameHeight, 
       font-size: 14px;
       padding: 10px;
     }
-    .lanternMode,
-    .clockMode {
+    .lanternMode, .clockMode {
       top: 60px;
     }
     .head {
