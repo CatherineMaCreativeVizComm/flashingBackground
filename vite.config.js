@@ -1,33 +1,34 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
-import dsv from '@rollup/plugin-dsv'
-import tailwindcss from '@tailwindcss/vite'
-import svg from "vite-plugin-svgstring"
+// import dsv from '@rollup/plugin-dsv'
+// import tailwindcss from '@tailwindcss/vite'
+// import svg from "vite-plugin-svgstring"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'https://multimedia.scmp.com/components/2026/lantern-wc/',
+  base: 'https://multimedia.scmp.com/components/2026/flashingbackground-wgc',
   server: {
     proxy: {
-      '/api/sheet': {
-        target: 'https://interactive-static.scmp.com',
+      '/api/multimedia': {
+        target: 'https://multimedia.scmp.com', 
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/sheet/, '/sheet')
+        rewrite: (path) => path.replace(/^\/api\/multimedia/, '') 
       }
     }
   },
   plugins: [
-    tailwindcss(),
     svelte(),
-    svg(),
-    dsv({
-      processRow: (row, id) => {
-        Object.keys(row).forEach((key) => {
-          var value = row[key]
-          row[key] = isNaN(+value) ? value : +value
-        })
-      }
-    })],
+    // tailwindcss(),
+    // svg(),
+    // dsv({
+    //   processRow: (row, id) => {
+    //     Object.keys(row).forEach((key) => {
+    //       var value = row[key]
+    //       row[key] = isNaN(+value) ? value : +value
+    //     })
+    //   }
+    // })
+  ],
   build: {
     rollupOptions: {
       output: {
