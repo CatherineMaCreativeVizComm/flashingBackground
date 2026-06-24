@@ -9,8 +9,8 @@
 
   const PARTICLE_COUNT = 120;
   const BASE_COLOR = [255, 255, 255]; 
-  const MIN_SIZE = 1;
-  const MAX_SIZE = 2;
+  const MIN_SIZE = 0.5;
+  const MAX_SIZE = 1;
   const MIN_SPEED = 0.006;
   const MAX_SPEED = 0.002;
 
@@ -121,7 +121,7 @@
     display: block;
     pointer-events: none;
     z-index: -1; 
-    background-color: #0b0b14; 
+    background-color: #000000; 
   }
   canvas {
     display: block;
